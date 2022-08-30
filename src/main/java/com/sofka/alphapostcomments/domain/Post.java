@@ -38,4 +38,16 @@ public class Post extends AggregateEvent<PostId> {
         Objects.requireNonNull(content);
         appendChange(new CommentAdded(commentId, author, content)).apply();
     }
+
+    public Title title() {
+        return title;
+    }
+
+    public Author author() {
+        return author;
+    }
+
+    public List<Comment> comments() {
+        return comments;
+    }
 }
