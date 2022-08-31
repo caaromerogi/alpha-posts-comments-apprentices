@@ -6,21 +6,25 @@ import com.sofka.alphapostcomments.values.PostId;
 import com.sofka.alphapostcomments.values.Title;
 
 public class PostCreated extends DomainEvent {
-    private Title title;
+    private String title;
 
-    private Author author;
+    private String author;
 
-    public PostCreated(Title title, Author author){
+    public PostCreated(String title, String author){
         super("com.sofka.dddchallenge.Song.SongCreated");
         this.title = title;
         this.author = author;
     }
 
-    public Title getTitle() {
+    public  PostCreated(){
+        super("com.sofka.dddchallenge.Song.SongCreated");
+    }
+
+    public String getTitle() {
         return title;
     }
 
-    public Author getAuthor() {
+    public String getAuthor() {
         return author;
     }
 }

@@ -1,4 +1,4 @@
-package com.sofka.alphapostcomments.domain;
+package com.sofka.alphapostcomments;
 
 import co.com.sofka.domain.generic.Entity;
 import com.sofka.alphapostcomments.values.Author;

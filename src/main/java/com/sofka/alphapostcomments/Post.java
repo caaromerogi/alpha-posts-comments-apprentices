@@ -1,4 +1,4 @@
-package com.sofka.alphapostcomments.domain;
+package com.sofka.alphapostcomments;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
@@ -18,7 +18,7 @@ public class Post extends AggregateEvent<PostId> {
 
     public Post(PostId entityId, Title title, Author author){
         super(entityId);
-        appendChange(new PostCreated(title, author)).apply();
+        appendChange(new PostCreated(title.value(), author.value())).apply();
     }
 
     private Post(PostId postId){
@@ -36,7 +36,7 @@ public class Post extends AggregateEvent<PostId> {
         Objects.requireNonNull(commentId);
         Objects.requireNonNull(author);
         Objects.requireNonNull(content);
-        appendChange(new CommentAdded(commentId, author, content)).apply();
+        appendChange(new CommentAdded(commentId.value(), author.value(), content.value())).apply();
     }
 
     public Title title() {
